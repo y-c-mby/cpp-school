@@ -1,6 +1,0 @@
-person.o: person.cpp person.h
-school.o: school.cpp school.h student.h person.h teacher.h
-teacher.o: teacher.cpp teacher.h person.h
-t_teachr.o: t_teachr.cpp t_teachr.h teacher.h person.h student.h
-student.o: student.cpp student.h person.h
-main.o: main.cpp school.h student.h person.h teacher.h t_teachr.h
