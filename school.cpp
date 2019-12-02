@@ -8,20 +8,21 @@ size_t School::getNumOfTeachers() const{
 }
 void School::pairTeacherToStudent(size_t ratio){
 
+	unsigned int i;
 	m_class.clear();
-	std::list<Student*> l1;
 	std::vector<Student*>::iterator jt=m_StudentsList.begin();
 	for(std::vector<Teacher*>::iterator it=m_TeachersList.begin(); it!=m_TeachersList.end();it++)
 	{
-		
-		/*m_class[it->m_name];*/
-		for(int i=0;i<ratio;i++)
+		for(i=0;i<ratio;i++)
 		{
 			
-			if(jt==m_StudentsList.end())
+			
+			if(jt==(m_StudentsList.end()-1))
 			{
+				
 				return;
 			}
+			
 			m_class[(**it).getName()].push_back(*jt);
 			jt++;
 				
@@ -32,7 +33,7 @@ void School::pairTeacherToStudent(size_t ratio){
 }
 std::list<Student*> School:: getTeacherStudents(const std::string& teacherName) 
 {
-	for(std::map<std::string ,std::list<Student*>>::iterator it=m_class.begin();it!=m_class.end();it++)
+	for(std::map<std::string ,std::list<Student*> >::iterator it=m_class.begin();it!=m_class.end();it++)
 	{
 		if(it->first==teacherName)
 		{
@@ -44,7 +45,7 @@ std::list<Student*> School:: getTeacherStudents(const std::string& teacherName)
 }
 void School::print()
 {
-	int i;
+	unsigned int i;
 	std::cout<<"the students of school:"<<std::endl;
 	for(i=0;i<getNumOfStudent();i++)
 	{
@@ -58,11 +59,12 @@ void School::print()
 }
 void School::printMap()
 {
-	int i;
-	for(std::map<std::string ,std::list<Student*>>::iterator it=m_class.begin();it!=m_class.end();it++)
+	
+	for(std::map<std::string ,std::list<Student*> >::iterator it=m_class.begin();it!=m_class.end();it++)
 	{
-		std::cout<<"teacher of class: "<<it->first<<std::endl;
-		for(std::list<Student*>::iterator st=(it->second).begin();st!=(it->second).end();st++)
+		std::cout<<"teacher of class: "<< it->first <<std::endl;
+		std::cout<<"have this students: "<<std::endl;
+		for(std::list<Student*>::iterator st=((it->second).begin());st!=((it->second).end());st++)
 		{
 			std::cout<< (**st).getName() <<std::endl;
 		}

@@ -8,7 +8,7 @@
 class School{
 	std::vector<Student*> m_StudentsList;
 	std::vector<Teacher*> m_TeachersList;
-	std::map<std::string ,std::list<Student*>>m_class;
+	std::map<std::string ,std::list<Student*> >m_class;
 	
 	public:
 	void addStudent(Student* student);
